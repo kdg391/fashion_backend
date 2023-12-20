@@ -5,7 +5,7 @@ from utils import get_result
 app = Flask(__name__)
 CORS(app, resources={
     r'/submit': {
-        'origins': ['http://localhost:5173', 'https://kdg391.github.io/fashion_frontend/']
+        'origins': ['http://localhost:5173', 'https://kdg391.github.io']
     }
 })
 
