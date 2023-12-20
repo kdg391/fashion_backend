@@ -31,36 +31,35 @@ def calc_total(operations):
 def combination_process(clothes, num):
     if len(clothes[num]) > 1:
         index = random.randint(0, len(clothes[num]) - 1)
-        element = clothes[num][index]
 
-        return element
+        return clothes[num][index]
     else:
         return clothes[num][0]
 
-def get_recommendations(type, type_num):
+def get_recommendations(user_adv, typenum):
     global clothlist_outer, clothlist_inner, clothlist_under
 
     result = []
 
     # 옷 별로 수식어 추가?
     # 함수 내 함수로 코드 축소??
-    if type[0] == 'n':
-        result.append(combination_process(clothlist_outer, type_num))
-        result.append(combination_process(clothlist_inner, type_num))
-        result.append(combination_process(clothlist_under, type_num))
+    if user_adv[0] == 'n':
+        result.append(combination_process(clothlist_outer, typenum))
+        result.append(combination_process(clothlist_inner, typenum))
+        result.append(combination_process(clothlist_under, typenum))
     else:
-        if type_num > 1 and type_num < 4:
-            outer = random.randint(type_num - 1, type_num + 1)
-            inner = random.randint(type_num - 1, type_num + 1)
-            under = random.randint(type_num - 1, type_num + 1)
-        elif type_num == 1:
-            outer = random.randint(type_num, type_num + 1)
-            inner = random.randint(type_num, type_num + 1)
-            under = random.randint(type_num, type_num + 1)
+        if typenum > 1 and typenum < 4:
+            outer = random.randint(typenum - 1, typenum + 1)
+            inner = random.randint(typenum - 1, typenum + 1)
+            under = random.randint(typenum - 1, typenum + 1)
+        elif typenum == 1:
+            outer = random.randint(typenum, typenum + 1)
+            inner = random.randint(typenum, typenum + 1)
+            under = random.randint(typenum, typenum + 1)
         else:
-            outer = random.randint(type_num - 1, type_num)
-            inner = random.randint(type_num - 1, type_num)
-            under = random.randint(type_num - 1, type_num)
+            outer = random.randint(typenum - 1, typenum)
+            inner = random.randint(typenum - 1, typenum)
+            under = random.randint(typenum - 1, typenum)
 
         result.append(combination_process(clothlist_outer, outer))
         result.append(combination_process(clothlist_inner, inner))
