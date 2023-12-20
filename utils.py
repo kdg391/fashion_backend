@@ -72,12 +72,16 @@ def get_result(operations):
     total_main, total_sub, dep = calc_total(operations)
 
     if total_main > -7 and total_main <= -3:
+        user_type = 'A'
         typenum = 0
     elif total_main > -3 and total_main < 0:
+        user_type = 'B'
         typenum = 1
     elif total_main >= 0 and total_main < 4:
+        user_type = 'C'
         typenum = 2
     else:
+        user_type = 'D'
         typenum = 3
 
     if total_sub > 0:
@@ -85,13 +89,11 @@ def get_result(operations):
     else:
         user_adv = 'no_type'
 
-    result = {
+    return {
         'keywords': {
             'main': decorate_main[total_main + 7],
             'sub': decorate_sub[total_sub + 5],
             'dep': decorate_dep[dep]
         },
-        'recs': get_recommendations(user_adv, typenum)
+        'recommendations': get_recommendations(user_adv, typenum)
     }
-
-    return result
